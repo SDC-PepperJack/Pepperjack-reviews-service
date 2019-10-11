@@ -108,7 +108,8 @@ let getRandomComment = () => {
     'Nice product and shipped quickly!',
     'So happy I found this!!! It’s just perfect!!',
     'Looks lovely love the colour',
-    'Awesome art. Arrived in good time and in good quality!.'
+    'Awesome art. Arrived in good time and in good quality!.',
+    'Came quickly, super easy to apply and looks as awesome as the picture. Very happy with this purchase 😊',
   ];
 
   return randomComment[Math.floor(Math.random() * randomComment.length)];
