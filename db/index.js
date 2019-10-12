@@ -15,7 +15,6 @@ let Seller = mongoose.model('Seller', sellerSchema);
 
 
 
-
 module.exports = {
   Seller
 };
