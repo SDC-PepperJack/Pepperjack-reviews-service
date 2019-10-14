@@ -14,7 +14,19 @@ let sellerSchema = mongoose.Schema({
 let Seller = mongoose.model('Seller', sellerSchema);
 
 
+let getSellerData = (sellerID, callback) => {
+
+  Seller.findOne({ _id: sellerID }, (err, results) => {
+    if (err) {
+      callback(err, null);
+    }
+
+    callback(null, results);
+  });
+
+};
 
 module.exports = {
-  Seller
+  Seller,
+  getSellerData
 };
