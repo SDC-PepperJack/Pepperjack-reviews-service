@@ -16,10 +16,10 @@ app.get('/api/:sellerID', (req, res) => {
   db.getSellerData(req.params.sellerID, (err, results) => {
     if (err) {
       console.log('error occured getting seller info', err);
-
+      res.status(404).send('Error occured getting seller info');
     }
 
-    res.send(results);
+    res.status(200).send(results);
 
   });
 
