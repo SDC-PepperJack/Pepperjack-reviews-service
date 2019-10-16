@@ -109,6 +109,7 @@ let getComments = () => {
       reviewerComment: getRandomComment(),
       reviewerPhotoInComment: getRandomPhotoInComment(),
       reviewerItem: getRandomReviewerItem(),
+      reviewerItemPhoto: getRandomItemPhoto(),
       rating: getRandomRatings(),
       reviewerDate: getRandomDate()
     };
