@@ -8,7 +8,15 @@ const ReviewList = (props) => (
     <h4>Reviews ***** ({props.reviews})</h4>
     <div id='card'>
       {props.comments.map(ele =>
-        <ReviewItem key={ele.id} avatar={ele.reviewerAvatar} comment={ele.reviewerComment} date={ele.reviewerDate} item={ele.reviewerItem} username={ele.reviewerName} itemPhoto={ele.reviewerItemPhoto} />
+        <ReviewItem
+          key={ele.id}
+          avatar={ele.reviewerAvatar}
+          comment={ele.reviewerComment}
+          date={ele.reviewerDate}
+          item={ele.reviewerItem}
+          username={ele.reviewerName}
+          itemPhoto={ele.reviewerItemPhoto}
+        />
       )}
       <button onClick={props.getComments}>+ More</button>
     </div>

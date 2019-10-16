@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 //handle request for a certain seller
-app.get('/api/:sellerID', (req, res) => {
+app.get('/api/seller/:sellerID', (req, res) => {
 
   db.getSellerData(req.params.sellerID, (err, results) => {
     if (err) {
