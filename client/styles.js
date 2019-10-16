@@ -3,7 +3,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '20px',
-    fontFamily: `Graphik Webfont,-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif`
+    fontFamily: `Graphik Webfont,-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif`,
+    height: '790px',
+    // overflow: 'hidden'
   },
   avatarContainer: {
     display: 'flex',
@@ -61,6 +63,10 @@ const styles = {
     fontSize: '12px',
     fontWeight: '300',
     lineHeight: '1.5'
+  },
+  card: {
+    marginBottom: '30px',
+
   }
 };
 
