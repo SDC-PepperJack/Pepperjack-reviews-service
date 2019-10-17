@@ -18,7 +18,7 @@ const ReviewList = (props) => (
           itemPhoto={ele.reviewerItemPhoto}
         />
       )}
-      <button onClick={props.getComments}>+ More</button>
+      <button className="more" onClick={props.getComments}>+ More</button>
     </div>
 
   </div>
