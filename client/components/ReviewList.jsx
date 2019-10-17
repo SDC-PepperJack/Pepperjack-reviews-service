@@ -16,6 +16,7 @@ const ReviewList = (props) => (
           item={ele.reviewerItem}
           username={ele.reviewerName}
           itemPhoto={ele.reviewerItemPhoto}
+          photoInComment={ele.reviewerPhotoInComment}
         />
       )}
       <button onClick={props.getComments}>+ More</button>

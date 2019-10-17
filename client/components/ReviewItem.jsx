@@ -14,7 +14,13 @@ const ReviewItem = (props) => (
           </div>
         </div>
         <p style={styles.reviewStars}>*****</p>
-        <p style={styles.reviewComment}> {props.comment}</p>
+
+        {
+          (props.photoInComment !== 'none'
+            ? <p style={styles.reviewComment}> {props.comment} <br /> <img style={{ height: '300px', width: '300px' }} src={props.photoInComment} /> </p>
+            : <p style={styles.reviewComment}> {props.comment} </p>)
+        }
+
       </div>
     </div>
 
@@ -23,7 +29,9 @@ const ReviewItem = (props) => (
       <a style={styles.itemLink} >{props.item}</a>
     </div>
 
-  </div>
+  </div >
 );
 
 export default ReviewItem;
+
+
