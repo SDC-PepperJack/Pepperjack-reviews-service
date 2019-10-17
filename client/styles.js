@@ -67,6 +67,37 @@ const styles = {
   card: {
     marginBottom: '30px',
 
+  },
+  modal: {
+    // height: '100%',
+    // position: 'fixed',
+    display: 'none',
+    // zIndex: 10,
+    // backgroundColor: 'white',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    paddingLeft: '100px',
+    zIndex: 10,
+
+  },
+  modalWrapper: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  modalImg: {
+    height: 'auto',
+    width: 'auto'
+  },
+  modalImgContainer: {
+    display: 'flex',
+    order: 1,
+  },
+
+  modalReviewContainer: {
+    order: 2,
   }
 };
 

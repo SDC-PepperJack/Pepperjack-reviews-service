@@ -17,7 +17,14 @@ const ReviewItem = (props) => (
 
         {
           (props.photoInComment !== 'none'
-            ? <p style={styles.reviewComment}> {props.comment} <br /> <img style={{ height: '300px', width: '300px' }} src={props.photoInComment} /> </p>
+            ? <p style={styles.reviewComment}> {props.comment}
+              <br />
+              <img
+                onClick={() => props.handleModalView(props)}
+                style={{ height: '300px', width: '300px' }}
+                src={props.photoInComment} />
+            </p>
+
             : <p style={styles.reviewComment}> {props.comment} </p>)
         }
 
@@ -29,7 +36,9 @@ const ReviewItem = (props) => (
       <a style={styles.itemLink} >{props.item}</a>
     </div>
 
+
   </div >
+
 );
 
 export default ReviewItem;
