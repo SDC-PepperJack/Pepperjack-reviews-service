@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
+import ModalView from './ModalView.jsx'
 
 
 class ReviewList extends React.Component {
@@ -17,28 +18,40 @@ class ReviewList extends React.Component {
     let modalView = {
       date, item, username, itemPhoto, photoInComment, comment, avatar
     };
-    console.log(modalView);
-
-    // let modalCSS = this.state.modal;
-    // modalCSS.display = 'block';
 
     let modal = document.querySelector('.modalContainer');
+
+
     modal.style.display = 'block';
     modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
     let body = document.querySelector('body');
     body.style.overflow = 'hidden';
-    // body.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
+    let modalOverlay = document.querySelector('#modalOverlay');
 
-    let test = document.querySelector('#test');
-    test.style.display = 'block';
-    test.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    setTimeout(() => {
+      modalOverlay.style.removeProperty('opacity');
+    }, 0);
+
+    modalOverlay.style.display = 'block';
+    modalOverlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
     this.setState({
       modalHTML: modalView,
-      // modal: modalCSS
     });
+  }
+
+  handleExitModalView() {
+    let modal = document.querySelector('.modalContainer');
+    modal.style.display = 'none';
+    let modalOverlay = document.querySelector('#modalOverlay');
+    modalOverlay.style.display = 'none';
+    modalOverlay.style.backgroundColor = '';
+    modalOverlay.style.opacity = '0';
+
+    let body = document.querySelector('body');
+    body.style.overflow = 'scroll';
   }
 
   render() {
@@ -46,23 +59,13 @@ class ReviewList extends React.Component {
       <div style={styles.container} id='review-list'>
         <h4>Reviews ***** ({this.props.reviews})</h4>
         <div id='card'>
-          <div id="test" style={styles.test}>
+
+          <ModalView
+            handleExitModalView={this.handleExitModalView.bind(this)}
+            modalHTML={this.state.modalHTML}
+          />
 
 
-            <div className="modalContainer" style={styles.modal}>
-              <div style={styles.modalWrapper}>
-                <div style={styles.modalImgContainer}>
-                  <img style={styles.modalImg} src={this.state.modalHTML.photoInComment}></img>
-
-                </div>
-                <div style={styles.modalReviewContainer}>
-                  <h2> {this.state.modalHTML.username}</h2>
-                  <p>{this.state.modalHTML.comment}</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
           {this.props.comments.map(ele =>
             <ReviewItem
               key={ele.id}
