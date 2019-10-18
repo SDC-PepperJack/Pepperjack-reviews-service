@@ -27,8 +27,13 @@ class ReviewList extends React.Component {
     modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
     let body = document.querySelector('body');
+    body.style.overflow = 'hidden';
+    // body.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
 
+    let test = document.querySelector('#test');
+    test.style.display = 'block';
+    test.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
     this.setState({
       modalHTML: modalView,
@@ -41,18 +46,22 @@ class ReviewList extends React.Component {
       <div style={styles.container} id='review-list'>
         <h4>Reviews ***** ({this.props.reviews})</h4>
         <div id='card'>
-          <div className="modalContainer" style={styles.modal}>
-            <div style={styles.modalWrapper}>
-              <div styles={styles.modalImgContainer}>
-                <img style={styles.modalImg} src={this.state.modalHTML.photoInComment}></img>
+          <div id="test" style={styles.test}>
 
+
+            <div className="modalContainer" style={styles.modal}>
+              <div style={styles.modalWrapper}>
+                <div style={styles.modalImgContainer}>
+                  <img style={styles.modalImg} src={this.state.modalHTML.photoInComment}></img>
+
+                </div>
+                <div style={styles.modalReviewContainer}>
+                  <h2> {this.state.modalHTML.username}</h2>
+                  <p>{this.state.modalHTML.comment}</p>
+                </div>
               </div>
-              <div styles={styles.modalReviewContainer}>
-                <h2> {this.state.modalHTML.username}</h2>
-                <p>{this.state.modalHTML.comment}</p>
-              </div>
+
             </div>
-
           </div>
           {this.props.comments.map(ele =>
             <ReviewItem

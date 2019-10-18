@@ -69,25 +69,33 @@ const styles = {
 
   },
   modal: {
-    // height: '100%',
-    // position: 'fixed',
     display: 'none',
-    // zIndex: 10,
-    // backgroundColor: 'white',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    paddingLeft: '100px',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // width: '100%',
+    // height: '100%',
+    // paddingLeft: '100px',
+
+    position: 'fixed',
+    left: '50%',
+    top: '22%',
+    transform: 'translate(-50%, -50%)',
+    overflow: 'hidden',
+    maxHeight: '640px',
+    height: '40%',
+    width: '80%',
     zIndex: 10,
 
   },
   modalWrapper: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'stretch'
   },
   modalImg: {
+    minHeight: '500px',
+    minWidth: '500px',
     height: 'auto',
     width: 'auto'
   },
@@ -97,7 +105,21 @@ const styles = {
   },
 
   modalReviewContainer: {
+    width: 'auto',
     order: 2,
+    backgroundColor: 'white'
+  },
+  test: {
+    display: 'none',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    // backgroundColor: 'rgba(0,0,0,0.5)',
+    // transform: 'translate(-50%, -50%)',
+    zIndex: 10,
+    top: '0px',
+    left: '0px',
+    // z-index:1000
   }
 };
 
