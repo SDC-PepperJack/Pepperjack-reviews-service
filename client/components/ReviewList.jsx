@@ -5,7 +5,7 @@ import ReviewItem from './ReviewItem.jsx';
 
 const ReviewList = (props) => (
   <div style={styles.container} id='review-list'>
-    <h4>Reviews ***** ({props.reviews})</h4>
+    <h4 className="reviewsNumber">Reviews ***** ({props.reviews})</h4>
     <div id='card'>
       {props.comments.map(ele =>
         <ReviewItem
@@ -18,7 +18,7 @@ const ReviewList = (props) => (
           itemPhoto={ele.reviewerItemPhoto}
         />
       )}
-      <button onClick={props.getComments}>+ More</button>
+      <button className="more" onClick={props.getComments}>+ More</button>
     </div>
 
   </div>
