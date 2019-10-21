@@ -9,7 +9,7 @@ const ReviewItem = (props) => (
       <div style={styles.avatarContainer}>
         <div style={styles.userNameDateDiv}>
           <a style={{ color: 'rgb(34, 34, 34)' }} href='#'>{props.username}</a>
-          <div style={styles.reviewDate}>
+          <div className="date" style={styles.reviewDate}>
             {props.date}
           </div>
         </div>

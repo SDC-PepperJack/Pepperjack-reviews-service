@@ -3,7 +3,6 @@ import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
 import ModalView from './ModalView.jsx'
 
-
 class ReviewList extends React.Component {
   constructor(props) {
     super(props);
@@ -86,6 +85,7 @@ class ReviewList extends React.Component {
     );
   }
 }
+
 
 
 export default ReviewList;
