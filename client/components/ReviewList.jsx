@@ -1,28 +1,91 @@
 import React from 'react';
 import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
+import ModalView from './ModalView.jsx'
+
+class ReviewList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalHTML: {
+        photoInComment: 'test',
+      }
+    };
+  }
+
+  handleModalView({ avatar, date, item, username, itemPhoto, photoInComment, comment }) {
+    let modalView = {
+      date, item, username, itemPhoto, photoInComment, comment, avatar
+    };
+
+    let modal = document.querySelector('.modalContainer');
 
 
-const ReviewList = (props) => (
-  <div style={styles.container} id='review-list'>
-    <h4 className="reviewsNumber">Reviews ***** ({props.reviews})</h4>
-    <div id='card'>
-      {props.comments.map(ele =>
-        <ReviewItem
-          key={ele.id}
-          avatar={ele.reviewerAvatar}
-          comment={ele.reviewerComment}
-          date={ele.reviewerDate}
-          item={ele.reviewerItem}
-          username={ele.reviewerName}
-          itemPhoto={ele.reviewerItemPhoto}
-        />
-      )}
-      <button className="more" onClick={props.getComments}>+ More</button>
-    </div>
+    modal.style.display = 'block';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
 
-  </div>
+    let body = document.querySelector('body');
+    body.style.overflow = 'hidden';
 
-);
+    let modalOverlay = document.querySelector('#modalOverlay');
+
+    setTimeout(() => {
+      modalOverlay.style.removeProperty('opacity');
+    }, 0);
+
+    modalOverlay.style.display = 'block';
+    modalOverlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+
+    this.setState({
+      modalHTML: modalView,
+    });
+  }
+
+  handleExitModalView() {
+    let modal = document.querySelector('.modalContainer');
+    modal.style.display = 'none';
+    let modalOverlay = document.querySelector('#modalOverlay');
+    modalOverlay.style.display = 'none';
+    modalOverlay.style.backgroundColor = '';
+    modalOverlay.style.opacity = '0';
+
+    let body = document.querySelector('body');
+    body.style.overflow = 'scroll';
+  }
+
+  render() {
+    return (
+      <div style={styles.container} id='review-list'>
+        <h4>Reviews ***** ({this.props.reviews})</h4>
+        <div id='card'>
+
+          <ModalView
+            handleExitModalView={this.handleExitModalView.bind(this)}
+            modalHTML={this.state.modalHTML}
+          />
+
+
+          {this.props.comments.map(ele =>
+            <ReviewItem
+              key={ele.id}
+              avatar={ele.reviewerAvatar}
+              comment={ele.reviewerComment}
+              date={ele.reviewerDate}
+              item={ele.reviewerItem}
+              username={ele.reviewerName}
+              itemPhoto={ele.reviewerItemPhoto}
+              photoInComment={ele.reviewerPhotoInComment}
+              handleModalView={this.handleModalView.bind(this)}
+            />
+          )}
+          <button onClick={this.props.getComments}>+ More</button>
+        </div>
+
+      </div >
+    );
+  }
+}
+
+
 
 export default ReviewList;

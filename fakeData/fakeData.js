@@ -141,9 +141,9 @@ let randomComment = [
 
 let photoInComment = [
   //dog collar
-  'https://i.etsystatic.com/iap/9aa24d/1810186391/iap_640x640.1810186391_f2vuu4wa.jpg?version=0',
+  'https://i.etsystatic.com/iap/30bd1e/1925012817/iap_640x640.1925012817_4x3ilzog.jpg?version=0',
   //kanye poster
-  'https://i.etsystatic.com/iap/755668/1665190559/iap_300x300.1665190559_b38yd28m.jpg?version=0',
+  'https://i.etsystatic.com/iap/755668/1665190559/iap_fullxfull.1665190559_b38yd28m.jpg?version=0',
   //rocky Balboa
   'https://i.etsystatic.com/iap/d8394a/1810626625/iap_300x300.1810626625_nqgvi0is.jpg?version=0'
 
