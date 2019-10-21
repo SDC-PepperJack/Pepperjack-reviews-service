@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles.js';
-
+import StarRatingComponent from 'react-star-rating-component';
 
 const ReviewItem = (props) => (
   <div style={styles.card}>
@@ -13,7 +13,7 @@ const ReviewItem = (props) => (
             {props.date}
           </div>
         </div>
-        <p style={styles.reviewStars}>*****</p>
+        <h2 style={styles.reviewStars}> <StarRatingComponent value={props.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} /></h2>
 
         {
           (props.photoInComment !== 'none'
