@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
-import ModalView from './ModalView.jsx'
+import ModalView from './ModalView.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {

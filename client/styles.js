@@ -97,7 +97,7 @@ const styles = {
   },
   modalImg: {
     // minHeight: '500px',
-    // minWidth: '500px',
+    minWidth: '600px',
     height: 'auto',
     width: 'auto',
     maxWidth: '100%',
