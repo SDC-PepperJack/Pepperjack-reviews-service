@@ -53,7 +53,8 @@ const styles = {
     fontSize: '14px',
   },
   reviewStars: {
-    margin: '0px'
+    margin: '0px',
+    paddingTop: '5px'
   },
   itemLink: {
     paddingTop: '25px',
@@ -160,6 +161,9 @@ const styles = {
     height: '29px',
     width: '39px',
     backgroundColor: 'white'
+  },
+  reviewHeader: {
+    alignItems: 'center'
   }
 };
 

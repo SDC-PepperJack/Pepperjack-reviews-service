@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
 import ModalView from './ModalView.jsx';
+import StarRatingComponent from 'react-star-rating-component';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class ReviewList extends React.Component {
     };
   }
 
-  handleModalView({ avatar, date, item, username, itemPhoto, photoInComment, comment }) {
+  handleModalView({ avatar, date, item, username, itemPhoto, photoInComment, comment, rating }) {
     let modalView = {
-      date, item, username, itemPhoto, photoInComment, comment, avatar
+      date, item, username, itemPhoto, photoInComment, comment, avatar, rating
     };
 
     let modal = document.querySelector('.modalContainer');
@@ -56,7 +57,10 @@ class ReviewList extends React.Component {
   render() {
     return (
       <div style={styles.container} id='review-list'>
-        <h4>Reviews ***** ({this.props.reviews})</h4>
+        <div style={styles.reviewHeader}>
+          <h4 style={{ display: 'flex' }}> Reviews <span style={{ marginLeft: '5px', marginRight: '5px' }}><StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} /> </span>({this.props.reviews})</h4>
+        </div>
+
         <div id='card'>
 
           <ModalView
@@ -75,6 +79,7 @@ class ReviewList extends React.Component {
               username={ele.reviewerName}
               itemPhoto={ele.reviewerItemPhoto}
               photoInComment={ele.reviewerPhotoInComment}
+              rating={ele.rating}
               handleModalView={this.handleModalView.bind(this)}
             />
           )}

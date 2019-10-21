@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles.js';
-
+import StarRatingComponent from 'react-star-rating-component';
 
 const ModalView = (props) => (
   <div id="modalOverlay" style={styles.modalOverlay}>
@@ -19,7 +19,7 @@ const ModalView = (props) => (
 
           </div>
 
-          <p style={{ paddingLeft: '35px' }}>*****</p>
+          <h3 style={{ paddingLeft: '35px' }}><StarRatingComponent value={props.modalHTML.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} /></h3>
           <div style={{ maxHeight: '318px', maxWidth: '600px' }}>
             <p style={{ paddingLeft: '35px', fontSize: '15px', paddingRight: '35px', lineHeight: '1.4' }}> {props.modalHTML.comment}</p>
           </div>
