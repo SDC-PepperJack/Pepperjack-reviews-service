@@ -58,7 +58,13 @@ class ReviewList extends React.Component {
     return (
       <div style={styles.container} id='review-list'>
         <div style={styles.reviewHeader}>
-          <h4 style={{ display: 'flex' }}> Reviews <span style={{ marginLeft: '5px', marginRight: '5px' }}><StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} /> </span>({this.props.reviews})</h4>
+          <h4 style={{ display: 'flex' }}>
+            Reviews
+            <span style={{ marginLeft: '5px', marginRight: '5px' }}>
+              <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+            </span>
+            ({this.props.reviews})
+          </h4>
         </div>
 
         <div id='card'>
