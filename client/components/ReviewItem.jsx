@@ -1,41 +1,42 @@
 import React from 'react';
 import styles from '../styles.js';
 import StarRatingComponent from 'react-star-rating-component';
-import { Card, UsernameContainer, Avatar } from './styled.js'
+import { Card, UsernameContainer, Avatar, AvatarContainer, UserNameDateDiv, UserNameATag, ReviewDate, ReviewStars, ReviewComment, PhotoInComment, ItemContainer, ItemPhoto, ItemLink } from './styled.js';
 
 const ReviewItem = (props) => (
   <Card>
     <UsernameContainer >
       <Avatar src={props.avatar} />
-      <div style={styles.avatarContainer}>
-        <div style={styles.userNameDateDiv}>
-          <a style={{ color: 'rgb(34, 34, 34)' }} href='#'>{props.username}</a>
-          <div className="date" style={styles.reviewDate}>
+      <AvatarContainer>
+        <UserNameDateDiv >
+          <UserNameATag href='#'>{props.username}</UserNameATag>
+          <ReviewDate >
             {props.date}
-          </div>
-        </div>
-        <h2 style={styles.reviewStars}> <StarRatingComponent value={props.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} /></h2>
+          </ReviewDate>
+        </UserNameDateDiv>
+        <ReviewStars >
+          <StarRatingComponent value={props.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+        </ReviewStars>
 
         {
           (props.photoInComment !== 'none'
-            ? <p style={styles.reviewComment}> {props.comment}
+            ? <ReviewComment> {props.comment}
               <br />
-              <img
+              <PhotoInComment
                 onClick={() => props.handleModalView(props)}
-                style={{ height: '300px', width: '300px' }}
                 src={props.photoInComment} />
-            </p>
+            </ReviewComment>
 
-            : <p style={styles.reviewComment}> {props.comment} </p>)
+            : <ReviewComment> {props.comment} </ReviewComment>)
         }
 
-      </div>
+      </AvatarContainer>
     </UsernameContainer>
 
-    <div style={styles.itemContainer} >
-      <img style={{ width: '75px', height: '75px' }} src={props.itemPhoto}></img>
-      <a style={styles.itemLink} >{props.item}</a>
-    </div>
+    <ItemContainer >
+      <ItemPhoto src={props.itemPhoto}></ItemPhoto>
+      <ItemLink >{props.item}</ItemLink>
+    </ItemContainer>
 
 
   </Card>

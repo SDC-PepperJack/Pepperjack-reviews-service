@@ -20,7 +20,7 @@ class ReviewList extends React.Component {
       date, item, username, itemPhoto, photoInComment, comment, avatar, rating
     };
 
-    let modal = document.querySelector('.modalContainer');
+    let modal = document.querySelector('#modalContainer');
 
 
     modal.style.display = 'block';
@@ -32,7 +32,8 @@ class ReviewList extends React.Component {
     let modalOverlay = document.querySelector('#modalOverlay');
 
     setTimeout(() => {
-      modalOverlay.style.removeProperty('opacity');
+      // modalOverlay.style.removeProperty('opacity');
+      modalOverlay.style.opacity = 1;
     }, 0);
 
     modalOverlay.style.display = 'block';
@@ -44,7 +45,7 @@ class ReviewList extends React.Component {
   }
 
   handleExitModalView() {
-    let modal = document.querySelector('.modalContainer');
+    let modal = document.querySelector('#modalContainer');
     modal.style.display = 'none';
     let modalOverlay = document.querySelector('#modalOverlay');
     modalOverlay.style.display = 'none';
@@ -57,16 +58,16 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-        <ReviewContainer >
-          <ReviewHeader >
+      <ReviewContainer >
+        <ReviewHeader >
           <ReviewH4 >
-              Reviews
+            Reviews
             <ReviewH4Span>
-                <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+              <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
             </ReviewH4Span>
-              ({this.props.reviews})
-            </ReviewH4>
-          </ReviewHeader>
+            ({this.props.reviews})
+          </ReviewH4>
+        </ReviewHeader>
 
         <Card id='card'>
           <ModalView
@@ -92,7 +93,7 @@ class ReviewList extends React.Component {
           <button onClick={this.props.getComments}>+ More</button>
         </Card>
 
-        </ReviewContainer>
+      </ReviewContainer>
     );
   }
 }

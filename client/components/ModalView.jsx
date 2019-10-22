@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from '../styles.js';
 import StarRatingComponent from 'react-star-rating-component';
+import { ModalOverlay, Modal, ModalWrapper } from './styled.js';
 
 const ModalView = (props) => (
-  <div id="modalOverlay" style={styles.modalOverlay}>
-    <div className="modalContainer" style={styles.modal}>
-      <div style={styles.modalWrapper}>
+  <ModalOverlay id="modalOverlay" >
+    <Modal id="modalContainer" >
+      <ModalWrapper>
         <div style={styles.modalImgContainer}>
           <img style={styles.modalImg} src={props.modalHTML.photoInComment}></img>
         </div>
@@ -35,10 +36,10 @@ const ModalView = (props) => (
 
 
         </div>
-      </div>
+      </ModalWrapper>
 
-    </div>
-  </div>
+    </Modal>
+  </ModalOverlay >
 );
 
 

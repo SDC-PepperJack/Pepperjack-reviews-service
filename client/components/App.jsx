@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import styled from 'styled-components';
-import { GlobalStyle} from './styled.js';
+import { GlobalStyle } from './styled.js';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/seller/5dae98a1f90bb12675a38ebf')
+    fetch('/api/seller/5da94eea9d35c21f61adf514')
       .then(res => res.json())
       .then(res => {
         const { ratings, reviews, comments, seller, } = res;
@@ -28,7 +28,7 @@ class App extends React.Component {
 
 
   getAllComments() {
-    fetch('/api/seller/5dae98a1f90bb12675a38ebf')
+    fetch('/api/seller/5da94eea9d35c21f61adf514')
       .then(res => res.json())
       .then(res => {
         const { comments } = res;
