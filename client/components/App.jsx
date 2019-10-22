@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/seller/5da94eea9d35c21f61adf514')
+    fetch('/api/seller/5')
       .then(res => res.json())
       .then(res => {
         const { ratings, reviews, comments, seller, } = res;
@@ -26,7 +26,7 @@ class App extends React.Component {
 
 
   getAllComments() {
-    fetch('/api/seller/5da94eea9d35c21f61adf514')
+    fetch('/api/seller/5')
       .then(res => res.json())
       .then(res => {
         const { comments } = res;
