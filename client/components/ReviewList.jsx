@@ -48,6 +48,7 @@ class ReviewList extends React.Component {
     let modal = document.querySelector('#modalContainer');
     modal.style.display = 'none';
     let modalOverlay = document.querySelector('#modalOverlay');
+
     modalOverlay.style.display = 'none';
     modalOverlay.style.backgroundColor = '';
     modalOverlay.style.opacity = '0';

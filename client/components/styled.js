@@ -145,3 +145,96 @@ export const ModalImgContainer = styled.div`
 display: flex
 order: 1
 `;
+
+export const ModalImg = styled.img`
+min-width: 600px
+height: auto
+width: auto
+max-width: 100%
+max-height: 656.672px;
+`;
+
+export const ModalReviewContainer = styled.div`
+width: auto;
+order: 2;
+background-color: white;
+flex: 1 0 auto;
+`;
+
+export const UserModalContainer = styled.div`
+display: flex;
+flex-direction: row;
+font-size: 14px;
+padding-top: 36px;
+padding-left: 30px;
+padding-right: 12px;
+`;
+
+export const ModalUserName = styled.a`
+color: rgb(34, 34, 34);
+padding-top: 15px;
+padding-left: 15px;
+`;
+
+export const ModalDate = styled.div`
+padding-top: 15px;
+padding-left: 15px;
+`;
+
+export const ModalReviewStars = styled.h3`
+padding-left: 35px;
+`;
+
+export const ModalCommentContainer = styled.div`
+max-height: 318px;
+max-width: 600px;
+`;
+
+export const ModalComment = styled.p`
+padding-left: 35px;
+font-size: 15px;
+padding-right: 35px;
+line-height: 1.4;
+`;
+
+export const ModalItemContainer = styled.div`
+display: flex;
+position: relative;
+top: 40%;
+left: 10%;
+`;
+
+export const ModalImageContainer = styled.div`
+width: 142px;
+height: 142px;
+`;
+
+export const ModalItemImage = styled.img`
+width: 150px;
+height: 142px;
+`;
+
+export const ModalItemLink = styled.a`
+padding-top: 60px;
+padding-left: 10px;
+text-overflow: ellipsis;
+width: 370px;
+overflow: hidden;
+white-space: nowrap;
+font-size: 14px;
+color: #222;
+font-weight: 300;
+line-height: 1.4;
+`;
+
+export const ModalExitButton = styled.button`
+right: 0;
+top: 0;
+position: absolute;
+float: right;
+color: #222;
+z-index: 10;
+height: 29px;
+width: 39px;
+background-color: white;
+`;
