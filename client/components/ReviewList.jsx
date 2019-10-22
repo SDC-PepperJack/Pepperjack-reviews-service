@@ -3,6 +3,7 @@ import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
 import ModalView from './ModalView.jsx';
 import StarRatingComponent from 'react-star-rating-component';
+import { ReviewContainer, ReviewHeader, ReviewH4, ReviewH4Span, Card } from './styled.js'
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -56,19 +57,18 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div style={styles.container} id='review-list'>
-        <div style={styles.reviewHeader}>
-          <h4 style={{ display: 'flex' }}>
-            Reviews
-            <span style={{ marginLeft: '5px', marginRight: '5px' }}>
-              <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
-            </span>
-            ({this.props.reviews})
-          </h4>
-        </div>
+        <ReviewContainer >
+          <ReviewHeader >
+          <ReviewH4 >
+              Reviews
+            <ReviewH4Span>
+                <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+            </ReviewH4Span>
+              ({this.props.reviews})
+            </ReviewH4>
+          </ReviewHeader>
 
-        <div id='card'>
-
+        <Card id='card'>
           <ModalView
             handleExitModalView={this.handleExitModalView.bind(this)}
             modalHTML={this.state.modalHTML}
@@ -90,9 +90,9 @@ class ReviewList extends React.Component {
             />
           )}
           <button onClick={this.props.getComments}>+ More</button>
-        </div>
+        </Card>
 
-      </div >
+        </ReviewContainer>
     );
   }
 }

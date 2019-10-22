@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from '../styles.js';
 import StarRatingComponent from 'react-star-rating-component';
+import { Card, UsernameContainer, Avatar } from './styled.js'
 
 const ReviewItem = (props) => (
-  <div style={styles.card}>
-    <div style={styles.usernameContainer}>
-      <img style={styles.avatar} src={props.avatar}></img>
+  <Card>
+    <UsernameContainer >
+      <Avatar src={props.avatar} />
       <div style={styles.avatarContainer}>
         <div style={styles.userNameDateDiv}>
           <a style={{ color: 'rgb(34, 34, 34)' }} href='#'>{props.username}</a>
@@ -29,7 +30,7 @@ const ReviewItem = (props) => (
         }
 
       </div>
-    </div>
+    </UsernameContainer>
 
     <div style={styles.itemContainer} >
       <img style={{ width: '75px', height: '75px' }} src={props.itemPhoto}></img>
@@ -37,7 +38,7 @@ const ReviewItem = (props) => (
     </div>
 
 
-  </div >
+  </Card>
 
 );
 

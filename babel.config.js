@@ -4,5 +4,5 @@ module.exports = {
     '@babel/preset-react',
 
   ],
-  plugins: ['transform-export-extensions', '@babel/transform-runtime']
+  plugins: ['transform-export-extensions', '@babel/transform-runtime', 'babel-plugin-styled-components']
 };
