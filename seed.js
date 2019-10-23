@@ -129,6 +129,7 @@ let getComments = () => {
 let seeds = [];
 for (let i = 0; i < 100; i++) {
   let seedSeller = {
+    sellerID: i,
     seller: getRandomNames(),
     reviews: getRandomReviews(),
     ratings: getRandomRatings(),

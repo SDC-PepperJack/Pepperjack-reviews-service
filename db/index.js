@@ -5,6 +5,7 @@ mongoose.connect('mongodb://localhost/sellers', { useNewUrlParser: true });
 
 
 let sellerSchema = mongoose.Schema({
+  sellerID: { type: Number, unique: true },
   seller: String,
   reviews: Number,
   ratings: Number,
@@ -16,7 +17,7 @@ let Seller = mongoose.model('Seller', sellerSchema);
 
 let getSellerData = (sellerID, callback) => {
 
-  Seller.findOne({ _id: sellerID }, (err, results) => {
+  Seller.findOne({ sellerID }, (err, results) => {
     if (err) {
       callback(err, null);
     }
