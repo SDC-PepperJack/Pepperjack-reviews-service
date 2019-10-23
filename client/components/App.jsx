@@ -1,5 +1,7 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
+import styled from 'styled-components';
+import { GlobalStyle } from './styled.js';
 
 class App extends React.Component {
   constructor() {

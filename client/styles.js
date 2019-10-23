@@ -69,7 +69,6 @@ const styles = {
   },
   card: {
     marginBottom: '30px',
-
   },
   modal: {
     display: 'none',

@@ -3,6 +3,7 @@ import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
 import ModalView from './ModalView.jsx';
 import StarRatingComponent from 'react-star-rating-component';
+import { ReviewContainer, ReviewHeader, ReviewH4, ReviewH4Span, Card } from './styled.js'
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class ReviewList extends React.Component {
       date, item, username, itemPhoto, photoInComment, comment, avatar, rating
     };
 
-    let modal = document.querySelector('.modalContainer');
+    let modal = document.querySelector('#modalContainer');
 
 
     modal.style.display = 'block';
@@ -31,7 +32,8 @@ class ReviewList extends React.Component {
     let modalOverlay = document.querySelector('#modalOverlay');
 
     setTimeout(() => {
-      modalOverlay.style.removeProperty('opacity');
+      // modalOverlay.style.removeProperty('opacity');
+      modalOverlay.style.opacity = 1;
     }, 0);
 
     modalOverlay.style.display = 'block';
@@ -43,9 +45,10 @@ class ReviewList extends React.Component {
   }
 
   handleExitModalView() {
-    let modal = document.querySelector('.modalContainer');
+    let modal = document.querySelector('#modalContainer');
     modal.style.display = 'none';
     let modalOverlay = document.querySelector('#modalOverlay');
+
     modalOverlay.style.display = 'none';
     modalOverlay.style.backgroundColor = '';
     modalOverlay.style.opacity = '0';
@@ -56,19 +59,18 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div style={styles.container} id='review-list'>
-        <div style={styles.reviewHeader}>
-          <h4 style={{ display: 'flex' }}>
+      <ReviewContainer >
+        <ReviewHeader >
+          <ReviewH4 >
             Reviews
-            <span style={{ marginLeft: '5px', marginRight: '5px' }}>
+            <ReviewH4Span>
               <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
-            </span>
+            </ReviewH4Span>
             ({this.props.reviews})
-          </h4>
-        </div>
+          </ReviewH4>
+        </ReviewHeader>
 
-        <div id='card'>
-
+        <Card id='card'>
           <ModalView
             handleExitModalView={this.handleExitModalView.bind(this)}
             modalHTML={this.state.modalHTML}
@@ -90,9 +92,9 @@ class ReviewList extends React.Component {
             />
           )}
           <button onClick={this.props.getComments}>+ More</button>
-        </div>
+        </Card>
 
-      </div >
+      </ReviewContainer>
     );
   }
 }
