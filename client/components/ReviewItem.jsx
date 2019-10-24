@@ -15,7 +15,7 @@ const ReviewItem = (props) => (
           </ReviewDate>
         </UserNameDateDiv>
         <ReviewStars >
-          <StarRatingComponent value={props.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+          <StarRatingComponent editing={false} value={props.rating} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
         </ReviewStars>
 
         {

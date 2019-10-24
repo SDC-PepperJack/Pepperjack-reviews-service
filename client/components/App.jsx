@@ -36,12 +36,16 @@ class App extends React.Component {
         //get all the rest of the comments once the more button is clicked
         this.setState({ comments });
       });
+
+    let moreBtn = document.querySelector('#more-btn');
+    moreBtn.style.display = 'none';
   }
 
 
   render() {
     return (
       <>
+        <GlobalStyle />
         <ReviewList getComments={this.getAllComments.bind(this)} comments={this.state.comments} ratings={this.state.ratings} reviews={this.state.reviews} />
 
       </>
