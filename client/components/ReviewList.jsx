@@ -3,7 +3,7 @@ import styles from '../styles.js';
 import ReviewItem from './ReviewItem.jsx';
 import ModalView from './ModalView.jsx';
 import StarRatingComponent from 'react-star-rating-component';
-import { ReviewContainer, ReviewHeader, ReviewH4, ReviewH4Span, Card } from './styled.js'
+import { ReviewContainer, ReviewHeader, ReviewH4, ReviewH4Span, Card, MoreButton, MoreButtonSpan } from './styled.js';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class ReviewList extends React.Component {
           <ReviewH4 >
             Reviews
             <ReviewH4Span>
-              <StarRatingComponent value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+              <StarRatingComponent editing={false} value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
             </ReviewH4Span>
             ({this.props.reviews})
           </ReviewH4>
@@ -91,7 +91,9 @@ class ReviewList extends React.Component {
               handleModalView={this.handleModalView.bind(this)}
             />
           )}
-          <button onClick={this.props.getComments}>+ More</button>
+          <MoreButton id="more-btn" onClick={this.props.getComments}>
+            <MoreButtonSpan>+ More</MoreButtonSpan>
+          </MoreButton>
         </Card>
 
       </ReviewContainer>

@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+body {
+  font-family: Graphik Webfont, -apple-system, BlinkMacSystemFont, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+}
  `;
 
 
@@ -9,7 +13,6 @@ export const ReviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  font-family: Helvetica-Light;
   font-weight: 500;
   height: 790px;
 
@@ -26,6 +29,7 @@ display: flex;
 export const ReviewH4Span = styled.span`
 margin-left: 5px;
 margin-right: 5px;
+
 `;
 
 export const Card = styled.div`
@@ -59,6 +63,9 @@ display: flex;
 
 export const UserNameATag = styled.a`
 color: rgb(34, 34, 34);
+&:hover {
+  color: grey;
+}
 `;
 
 
@@ -73,13 +80,16 @@ padding-top: 5px;
 `;
 
 export const ReviewComment = styled.p`
-margin-top: 0px
-font-size: 14px
+color: rgb(34, 34, 34);
+margin-top: 0px;
+font-size: 14px;
+line-height: 24px;
 `;
 
 export const PhotoInComment = styled.img`
 height: 300px;
 width: 300px;
+cursor: pointer;
 `;
 
 
@@ -107,6 +117,10 @@ white-space: nowrap;
 font-size: 12px;
 font-weight: 300;
 line-height: 1.5;
+cursor: pointer;
+&:hover{
+  text-decoration-line: underline;
+}
 `;
 
 
@@ -142,16 +156,17 @@ align-items: stretch;
 `;
 
 export const ModalImgContainer = styled.div`
-display: flex
-order: 1
+display: flex;
+order: 1;
 `;
 
 export const ModalImg = styled.img`
-min-width: 600px
-height: auto
-width: auto
-max-width: 100%
+min-width: 600px;
+height: auto;
+width: auto;
+max-width: 100%;
 max-height: 656.672px;
+
 `;
 
 export const ModalReviewContainer = styled.div`
@@ -202,6 +217,7 @@ display: flex;
 position: relative;
 top: 40%;
 left: 10%;
+width: 480px;
 `;
 
 export const ModalImageContainer = styled.div`
@@ -212,6 +228,7 @@ height: 142px;
 export const ModalItemImage = styled.img`
 width: 150px;
 height: 142px;
+cursor: pointer;
 `;
 
 export const ModalItemLink = styled.a`
@@ -225,6 +242,10 @@ font-size: 14px;
 color: #222;
 font-weight: 300;
 line-height: 1.4;
+cursor: pointer;
+&:hover{
+  text-decoration-line: underline;
+}
 `;
 
 export const ModalExitButton = styled.button`
@@ -234,7 +255,32 @@ position: absolute;
 float: right;
 color: #222;
 z-index: 10;
-height: 29px;
-width: 39px;
+height: 40px;
+width: 40px;
 background-color: white;
+border: 0px;
+font-size: 24px
+cursor: pointer;
+`;
+
+export const MoreButton = styled.button`
+background-color: rgba(0, 0, 0, 0);
+box-sizing: border-box;
+border: 0px;
+cursor: pointer;
+border-bottom-color: rgb(34, 34, 34);
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+text-decoration-line: underline;
+text-align: center;
+align-items: flex-start;
+font-weight: 500px;
+text-decoration-color: rgb(34, 34, 34);
+`;
+
+export const MoreButtonSpan = styled.span`
+color: rgb(34, 34, 34);
+font-weight: 500;
+font-size: 14px;
+line-height: 19.6px;
 `;
