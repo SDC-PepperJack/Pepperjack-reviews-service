@@ -16,7 +16,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/seller/5')
+    let searchParams = new URLSearchParams(window.location.search);
+    let productId = Number(searchParams.get('productId'));
+
+    fetch(`/api/seller/${productId || 5}`)
       .then(res => res.json())
       .then(res => {
         const { ratings, reviews, comments, seller, } = res;
