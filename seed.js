@@ -149,3 +149,4 @@ Seller.collection.insert(seeds, (err, result) => {
   }
   console.log(result, 'insert successful');
 });
+

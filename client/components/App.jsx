@@ -36,7 +36,7 @@ class App extends React.Component {
       .then(res => {
         const { comments } = res;
 
-        //get all the rest of the comments once the more button is clicked
+        //get all the rest of the comments once the more button is clicked`
         this.setState({ comments });
       });
 

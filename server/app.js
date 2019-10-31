@@ -38,7 +38,7 @@ app.get('/api/seller/:sellerID', (req, res) => {
 //handle put requests for specifc seller
 app.put('/api/seller/:sellerID', (req, res) => {
 
-  db.putSellerData(req.params.sellerID, (err, results) => {
+  db.putSellerData(req.params.sellerID, values, (err, results) => {
     if (err) {
       console.log('error occured putting seller info', err);
       res.status(404).send('Error occured putting seller info');
@@ -63,3 +63,4 @@ app.delete('/api/seller/:sellerID', (req, res) => {
 app.listen(PORT, () => {
   console.log('Listening on port', PORT);
 });
+
