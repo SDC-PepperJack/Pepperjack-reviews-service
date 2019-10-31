@@ -1,13 +1,15 @@
 # Project Name
+Pepperjack reviews services
 
 > Project description
+Designing and building a server to handle large volumes of requests/traffic as efficiently as possible.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/SDC-PepperJack/Pepperjack-carousel-darjama
+  - https://github.com/SDC-PepperJack/Pepperjack-checkout-service
+  - https://github.com/SDC-PepperJack/pepperjack-item-details
+  - https://github.com/SDC-PepperJack/Pepperjack-reviews-service (current repo)
 
 ## Table of Contents
 
@@ -18,6 +20,11 @@
 ## Usage
 
 > Some usage instructions
+REST APIs:
+  GET requests retrieves seller data.
+  POST requests adds new seller data.
+  PUT requests updates existing data.
+  DELETE requests removes single data.
 
 ## Requirements
 
@@ -33,7 +40,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+npm start
+npm run build
 ```
 
