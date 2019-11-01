@@ -12,7 +12,7 @@ app.use(express.static('./public'));
 //handle post requests for new seller
 app.post('/api/seller/', (req, res) => {
 
-  db.postSellerData(req.params, (err, results) => {
+  db.postSellerData(req.body, (err, results) => {
     if (err) {
       console.log('error occured posting seller info', err);
       res.status(404).send('Error occured posting seller info');
@@ -38,10 +38,12 @@ app.get('/api/seller/:sellerID', (req, res) => {
 //handle put requests for specifc seller
 app.put('/api/seller/:sellerID', (req, res) => {
 
-  db.putSellerData(req.params.sellerID, values, (err, results) => {
+  const { sellerId } = req.body.sellerID;
+
+  db.putSellerData(sellerId, req.body, (err, results) => {
     if (err) {
-      console.log('error occured putting seller info', err);
-      res.status(404).send('Error occured putting seller info');
+      console.log('error occured updating seller info', err);
+      res.status(404).send('Error occured updating seller info');
     }
     res.status(200).send(results);
   });
@@ -63,4 +65,3 @@ app.delete('/api/seller/:sellerID', (req, res) => {
 app.listen(PORT, () => {
   console.log('Listening on port', PORT);
 });
-
