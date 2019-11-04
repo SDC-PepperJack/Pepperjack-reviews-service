@@ -10,20 +10,7 @@ app.use(express.json());
 
 app.use(express.static('./public'));
 
-//get data from postgreSQL db
-app.get('/api/seller/:sellerID', (req, res) => {
 
-  let sellerID = req.params.sellerID;
-
-  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM newschema1.newtable WHERE sellerid = '${sellerID}';`;
-  pg.getSellerData(queryString, (error, results) => {
-    if (error) {
-      console.log('error occured getting seller info', error);
-      res.status(404).send('Error occured getting seller info');
-    }
-    res.status(200).send(results.rows);
-  });
-});
 
 //handle post requests for new seller
 // app.post('/api/seller/', (req, res) => {
@@ -79,4 +66,3 @@ app.get('/api/seller/:sellerID', (req, res) => {
 app.listen(PORT, () => {
   console.log('Listening on port', PORT);
 });
-

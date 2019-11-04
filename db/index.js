@@ -43,7 +43,8 @@ let getSellerData = (sellerID, callback) => {
 
 // updates sellers data
 let putSellerData = (sellerID, values, callback) => {
-  Seller.findByIdAndUpdate(sellerID, values, (err, results) => {
+
+  Seller.update(sellerID, values, (err, results) => {
     if (err) {
       callback(err, null);
     }
@@ -68,5 +69,4 @@ module.exports = {
   putSellerData,
   deleteSellerData
 };
-
 
