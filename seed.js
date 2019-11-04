@@ -117,8 +117,6 @@ let getComments = () => {
     comments.push(currentComment);
 
   }
-
-
   //return an array of 25
   return comments;
 };
