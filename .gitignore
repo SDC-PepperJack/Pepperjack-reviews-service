@@ -26,5 +26,6 @@ dist/
 
 public/bundle.js
 
-
+# CSV files
+.csv
 

@@ -7,7 +7,7 @@ let counter = 1;
 let getComments = () => {
   let comments = [];
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 10; i++) {
     let currentComment = {
       id: i,
       reviewerName: faker.name.firstName(),
