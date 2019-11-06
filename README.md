@@ -21,10 +21,10 @@ Designing and building a server to handle large volumes of requests/traffic as e
 
 > Some usage instructions
 REST APIs:
-  GET requests retrieves seller data.
-  POST requests adds new seller data.
-  PUT requests updates existing data.
-  DELETE requests removes single data.
+  - GET requests retrieves seller data.
+  - POST requests adds new seller data.
+  - PUT requests updates existing data.
+  - DELETE requests removes single data.
 
 ## Requirements
 

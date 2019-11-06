@@ -1,152 +1,150 @@
-const Seller = require('./db/index.js').Seller;
-const userNames = require('./fakeData/fakeData.js').userNames;
-const randomAvatars = require('./fakeData/fakeData.js').randomAvatars;
-const items = require('./fakeData/fakeData.js').items;
-const randomPhoto = require('./fakeData/fakeData.js').randomPhoto;
-const randomComment = require('./fakeData/fakeData.js').randomComment;
-const photoInComment = require('./fakeData/fakeData.js').photoInComment;
+// const Seller = require('./db/index.js').Seller;
+// const userNames = require('./fakeData/fakeData.js').userNames;
+// const randomAvatars = require('./fakeData/fakeData.js').randomAvatars;
+// const items = require('./fakeData/fakeData.js').items;
+// const randomPhoto = require('./fakeData/fakeData.js').randomPhoto;
+// const randomComment = require('./fakeData/fakeData.js').randomComment;
+// const photoInComment = require('./fakeData/fakeData.js').photoInComment;
 
-//for randomReviewItem and photoInComment
-let counter = 0;
+// //for randomReviewItem and photoInComment
+// let counter = 0;
 
-// random name generator
-let getRandomNames = () => {
-  return userNames[Math.floor(Math.random() * userNames.length)];
-};
+// // random name generator
+// let getRandomNames = () => {
+//   return userNames[Math.floor(Math.random() * userNames.length)];
+// };
 
-//random number of total reviews
-let getRandomReviews = () => {
-  return Math.floor(Math.random() * 3001);
-};
+// //random number of total reviews
+// let getRandomReviews = () => {
+//   return Math.floor(Math.random() * 3001);
+// };
 
-//random number of average reviews, may change later to decimals
-let getRandomRatings = () => {
-  return Math.floor(Math.random() * 5 + 1);
-};
-
-
-// random photos for a profile picture
-let getRandomAvatar = () => {
-  return randomAvatars[Math.floor(Math.random() * randomAvatars.length)];
-};
+// //random number of average reviews, may change later to decimals
+// let getRandomRatings = () => {
+//   return Math.floor(Math.random() * 5 + 1);
+// };
 
 
-// random comment/ review
-let getRandomComment = () => {
-  return randomComment[Math.floor(Math.random() * randomComment.length)];
-};
+// // random photos for a profile picture
+// let getRandomAvatar = () => {
+//   return randomAvatars[Math.floor(Math.random() * randomAvatars.length)];
+// };
 
 
-//When the comment contains a photo
-let getRandomPhotoInComment = () => {
-
-  //when the item is the dog collar
-  if (counter === 3) {
-    return photoInComment[0];
-  }
-  //when the item is kayne's poster
-  if (counter === 7) {
-    return photoInComment[1];
-  }
-  if (counter === 8) {
-    return photoInComment[2];
-  }
-
-  return 'none';
-};
+// // random comment/ review
+// let getRandomComment = () => {
+//   return randomComment[Math.floor(Math.random() * randomComment.length)];
+// };
 
 
-//random items they reviewed
-let getRandomReviewerItem = () => {
-  return items[counter];
-};
+// //When the comment contains a photo
+// let getRandomPhotoInComment = () => {
+
+//   //when the item is the dog collar
+//   if (counter === 3) {
+//     return photoInComment[0];
+//   }
+//   //when the item is kayne's poster
+//   if (counter === 7) {
+//     return photoInComment[1];
+//   }
+//   if (counter === 8) {
+//     return photoInComment[2];
+//   }
+
+//   return 'none';
+// };
 
 
-//random photos of the item they reviewed
-let getRandomItemPhoto = () => {
-
-  return randomPhoto[counter];
-};
-
-
-//gets a random date
-let getRandomDate = () => {
-  let months = [
-    'Jan',
-    'Feb',
-    'Apr',
-    'May',
-    'June',
-    'July',
-    'Aug',
-    'Sept',
-    'Oct',
-    'Nov',
-    'Dec'
-  ];
+// //random items they reviewed
+// let getRandomReviewerItem = () => {
+//   return items[counter];
+// };
 
 
-  let randomMonth = months[Math.floor(Math.random() * months.length)];
+// //random photos of the item they reviewed
+// let getRandomItemPhoto = () => {
 
-  let randomDay = Math.floor(Math.random() * 31);
-
-  let randomYear = Math.floor(Math.random() * 2) + 2017;
-
-  return `${randomMonth} ${randomDay}, ${randomYear}`;
-};
+//   return randomPhoto[counter];
+// };
 
 
-//creates all the 25 comments into an array
-let getComments = () => {
-  let comments = [];
+// //gets a random date
+// let getRandomDate = () => {
+//   let months = [
+//     'Jan',
+//     'Feb',
+//     'Apr',
+//     'May',
+//     'June',
+//     'July',
+//     'Aug',
+//     'Sept',
+//     'Oct',
+//     'Nov',
+//     'Dec'
+//   ];
 
 
-  for (let i = 0; i < 25; i++) {
-    let currentComment = {
-      id: i,
-      reviewerName: getRandomNames(),
-      reviewerAvatar: getRandomAvatar(),
-      reviewerComment: getRandomComment(),
-      reviewerPhotoInComment: getRandomPhotoInComment(),
-      reviewerItem: getRandomReviewerItem(),
-      reviewerItemPhoto: getRandomItemPhoto(),
-      rating: getRandomRatings(),
-      reviewerDate: getRandomDate()
-    };
-    counter++;
-    comments.push(currentComment);
+//   let randomMonth = months[Math.floor(Math.random() * months.length)];
 
-  }
+//   let randomDay = Math.floor(Math.random() * 31);
+
+//   let randomYear = Math.floor(Math.random() * 2) + 2017;
+
+//   return `${randomMonth} ${randomDay}, ${randomYear}`;
+// };
 
 
-  //return an array of 25
-  return comments;
-};
+// //creates all the 25 comments into an array
+// let getComments = () => {
+//   let comments = [];
+
+
+//   for (let i = 0; i < 25; i++) {
+//     let currentComment = {
+//       id: i,
+//       reviewerName: getRandomNames(),
+//       reviewerAvatar: getRandomAvatar(),
+//       reviewerComment: getRandomComment(),
+//       reviewerPhotoInComment: getRandomPhotoInComment(),
+//       reviewerItem: getRandomReviewerItem(),
+//       reviewerItemPhoto: getRandomItemPhoto(),
+//       rating: getRandomRatings(),
+//       reviewerDate: getRandomDate()
+//     };
+//     counter++;
+//     comments.push(currentComment);
+
+//   }
+//   //return an array of 25
+//   return comments;
+// };
 
 
 
-//creating each object for the collection
-let seeds = [];
-for (let i = 0; i < 100; i++) {
-  let seedSeller = {
-    sellerID: i,
-    seller: getRandomNames(),
-    reviews: getRandomReviews(),
-    ratings: getRandomRatings(),
-    comments: getComments()
-  };
+// //creating each object for the collection
+// let seeds = [];
+// for (let i = 0; i < 100; i++) {
+//   let seedSeller = {
+//     sellerID: i,
+//     seller: getRandomNames(),
+//     reviews: getRandomReviews(),
+//     ratings: getRandomRatings(),
+//     comments: getComments()
+//   };
 
 
-  //reset counter
-  counter = 0;
-  seeds.push(seedSeller);
-}
+//   //reset counter
+//   counter = 0;
+//   seeds.push(seedSeller);
+// }
 
 
-Seller.collection.insert(seeds, (err, result) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(result, 'insert successful');
-});
+// Seller.collection.insert(seeds, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result, 'insert successful');
+// });
 
