@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const PORT = 5000;
@@ -25,7 +26,9 @@ app.get('/api/seller/:sellerID', (req, res) => {
 });
 
 app.get('/api/seller/', (req, res) => {
-  pg.getAllData((error, results) => {
+
+  let queryString = 'SELECT sellerid, seller, reviews, ratings, comments FROM reviews.review WHERE sellerid <= 5';
+  pg.getSellerData(queryString, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);
       res.status(404).send('Error occured getting seller info');
