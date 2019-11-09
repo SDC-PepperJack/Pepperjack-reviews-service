@@ -32,7 +32,7 @@ class App extends React.Component {
 
 
   getAllComments() {
-    fetch('/api/seller/5')
+    fetch('/api/seller/')
       .then(res => res.json())
       .then(res => {
         const { comments } = res;

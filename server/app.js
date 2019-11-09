@@ -14,7 +14,7 @@ app.use(express.static('./public'));
 app.get('/api/seller/:sellerID', (req, res) => {
   let sellerID = req.params.sellerID;
 
-  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM newschema1.newtable WHERE sellerid = '${sellerID}';`;
+  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM reviews.review WHERE sellerid = '${sellerID}';`;
   pg.getSellerData(queryString, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);
