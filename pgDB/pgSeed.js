@@ -6,15 +6,15 @@ var pool = new Pool({
   user: 'jonathanyang',
   host: 'localhost',
   database: 'reviews_services',
-  password: 'Hypebeast123!',
+  password: '',
 });
 
 // var pool = new Pool();
 
 pool.connect(function(err, client, done) {
   console.log('Connected at ' + Date());
-  var stream = client.query(copyFrom('COPY reviews.review FROM STDIN WITH CSV HEADER\;'));
-  var fileStream = fs.createReadStream('/Users/jonathanyang/Desktop/HRR41/SDC-team-6/BTetsy-review-service/allReviews.csv');
+  var stream = client.query(copyFrom('COPY reviews FROM STDIN WITH CSV HEADER\;'));
+  var fileStream = fs.createReadStream('/Users/jonathanyang/Desktop/HRR41/SDC-team-6/BTetsy-review-service/pgDB/allReviews.csv');
   fileStream.on('Error', (err) => {
     console.log(`Error reading file: ${err}`);
   });

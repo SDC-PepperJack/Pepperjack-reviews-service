@@ -12,6 +12,7 @@
     "build": "webpack --watch",
     "start": "nodemon ./server/app.js",
     "seed": "node seed.js",
+    "makedatabase": "psql < pgDB/schema.sql",
     "pgseed": "node pgDB/pgSeed.js",
     "test": "jest --verbose"
   },

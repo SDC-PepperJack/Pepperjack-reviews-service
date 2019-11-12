@@ -15,25 +15,25 @@ app.use(express.static('./public'));
 app.get('/api/seller/:sellerID', (req, res) => {
   let sellerID = req.params.sellerID;
 
-  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM reviews.review WHERE sellerid = '${sellerID}';`;
+  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM reviews WHERE sellerid = '${sellerID}';`;
   pg.getSellerData(queryString, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);
       res.status(404).send('Error occured getting seller info');
     }
-    res.status(200).send(results.rows);
+    res.status(200).send(results);
   });
 });
 
 app.get('/api/seller/', (req, res) => {
 
-  let queryString = 'SELECT sellerid, seller, reviews, ratings, comments FROM reviews.review WHERE sellerid <= 5';
+  let queryString = 'SELECT sellerid, seller, reviews, ratings, comments FROM reviews WHERE sellerid <= 5';
   pg.getSellerData(queryString, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);
       res.status(404).send('Error occured getting seller info');
     }
-    res.status(200).send(results.rows);
+    res.status(200).send(results);
   });
 });
 

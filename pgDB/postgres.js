@@ -8,7 +8,7 @@ const client = new Pool({
   user: 'jonathanyang',
   host: 'localhost',
   database: 'reviews_services',
-  password: 'Hypebeast123!',
+  password: '',
 });
 
 client.connect()
@@ -19,7 +19,7 @@ const getSellerData = (data, callback) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, res);
+      callback(null, res.rows);
     }
   });
 };
