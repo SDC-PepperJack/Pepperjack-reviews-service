@@ -5,7 +5,7 @@ config:
       arrivalRate: 1000
   defaults:
     headers:
-      x-my-service-auth: '987401838271002188298567'
+      x-my-service-auth: 'AUTH_KEY'
 scenarios:
   - flow:
     - get:
