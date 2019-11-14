@@ -13,21 +13,34 @@ app.use(express.static('./public'));
 
 //get data from postgreSQL db
 app.get('/api/seller/:sellerID', (req, res) => {
-  let sellerID = req.params.sellerID;
 
-  let queryString = `SELECT sellerid, seller, reviews, ratings, comments FROM reviews WHERE sellerid = '${sellerID}';`;
-  pg.getSellerData(queryString, (error, results) => {
+  let sellerID = req.params.sellerID;
+  // let commentsID = req.params.sellerID;
+
+  let queryString1 = `SELECT sellerid, seller, reviews, ratings FROM reviews WHERE sellerid = '${sellerID}';`;
+  let queryString2 = `SELECT reviewerName,reviewerAvatar,reviewerComment,reviewerPhotoInComment,reviewerItem,reviewerItemPhoto,rating,reviewerDate FROM comments WHERE commentsid = '${sellerID}';`;
+
+  pg.getSellerData(queryString1, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);
-      res.status(404).send('Error occured getting seller info');
+    } else {
+      let newComments = results[0];
+      pg.getSellerComments(queryString2, (error2, results2) => {
+        if (error2) {
+          console.log('error occured getting seller info', error2);
+        } else {
+          newComments.comments = results2;
+          res.status(200).send(newComments);
+        }
+      })
     }
-    res.status(200).send(results);
-  });
+  })
 });
+
 
 app.get('/api/seller/', (req, res) => {
 
-  let queryString = 'SELECT sellerid, seller, reviews, ratings, comments FROM reviews WHERE sellerid <= 5';
+  let queryString = 'SELECT sellerid, seller, reviews, ratings FROM reviews WHERE sellerid <= 5';
   pg.getSellerData(queryString, (error, results) => {
     if (error) {
       console.log('error occured getting seller info', error);

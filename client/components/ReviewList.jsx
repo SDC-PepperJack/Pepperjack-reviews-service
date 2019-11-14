@@ -64,7 +64,7 @@ class ReviewList extends React.Component {
           <ReviewH4 >
             Reviews
             <ReviewH4Span>
-              <StarRatingComponent editing={false} value={this.props.ratings} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+              <StarRatingComponent editing={false} value={this.props.ratings} starCount={Math.floor(Math.random() * 5)} starColor={'black'} emptyStarColor={'#E1E3DF'} />
             </ReviewH4Span>
             ({this.props.reviews})
           </ReviewH4>

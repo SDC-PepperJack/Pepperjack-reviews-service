@@ -19,8 +19,8 @@ class App extends React.Component {
     let searchParams = new URLSearchParams(window.location.search);
     let productId = Number(searchParams.get('productId'));
 
-    // fetch(`/api/seller/${productId || 5}`)
-    fetch('/api/seller/')
+    fetch(`/api/seller/${productId || 5}`)
+    // fetch(`/api/seller/5`)
       .then(res => res.json())
       .then(res => {
         const { ratings, reviews, comments, seller, } = res;
@@ -28,7 +28,7 @@ class App extends React.Component {
         //only get 4 comments
         this.setState({ ratings, reviews, comments: comments.slice(0, 4), seller });
       });
-  }
+  };
 
 
   getAllComments() {
