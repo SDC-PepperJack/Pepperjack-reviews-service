@@ -24,6 +24,16 @@ const getSellerData = (data, callback) => {
   });
 };
 
+const getSellerComments = (data, callback) => {
+  client.query(data, (err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, res.rows);
+    }
+  });
+};
+
 const getAllData = () => {
   let queryString = 'SELECT * FROM reviews.review';
   client.query(queryString, (err, res) => {
@@ -38,5 +48,5 @@ const getAllData = () => {
 module.exports = {
   getSellerData,
   getAllData,
-  // seedAllData
+  getSellerComments
 };

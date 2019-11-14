@@ -2,33 +2,14 @@ const fs = require('fs');
 const csvWriter = require('csv-write-stream');
 const faker = require('faker');
 
-const writeUsers = fs.createWriteStream('allReviews.csv');
-writeUsers.write('sellerid, seller, reviews, ratings, comments\n', 'utf8');
+const writeUsers = fs.createWriteStream('allSellers.csv');
+writeUsers.write('sellerid, seller, reviews, ratings\n', 'utf8');
 
 
 let writeProducts = function(writer, encoding, callback) {
 
   // getComments function creates an array of objects that represent comments for a seller.
-  let getComments = () => {
-    let comments = [];
 
-    for (let i = 0; i < 10; i++) {
-      let currentComment = {
-        id: i,
-        reviewerName: faker.name.firstName(),
-        reviewerAvatar: faker.image.avatar(),
-        reviewerComment: faker.lorem.sentence(),
-        reviewerPhotoInComment: faker.image.imageUrl(),
-        reviewerItem: faker.commerce.productName(),
-        reviewerItemPhoto: faker.image.image(),
-        rating: faker.random.number(),
-        reviewerDate: faker.date.recent()
-      };
-      comments.push(currentComment);
-    }
-    let newString = JSON.stringify(comments);
-    return newString.slice(1, newString.length - 1);
-  };
 
   // Seeding instructions
   console.log('Seeding initiated at ', Date());
@@ -43,9 +24,8 @@ let writeProducts = function(writer, encoding, callback) {
       let seller = faker.internet.userName();
       let reviews = faker.random.number();
       let ratings = Math.floor(Math.random() * 5 + 1);
-      let comments = `"{${getComments()}}"`;
 
-      const data = `${sellerid}, ${seller}, ${reviews}, ${ratings}, ${comments}\n`;
+      const data = `${sellerid}, ${seller}, ${reviews}, ${ratings}\n`;
 
       if ( i === 0) {
         writer.write(data, encoding, callback);
@@ -63,7 +43,7 @@ let writeProducts = function(writer, encoding, callback) {
 // invoke seeding function
 writeProducts(writeUsers, 'utf-8', () => {
   writeUsers.end();
-  console.log('Seeding 10 million records completed at ', Date());
+  console.log('Seeding 10 million seller records completed at ', Date());
 });
 
 // PREVIOUS CODE, NO LONGER IN USE.
