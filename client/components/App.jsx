@@ -26,18 +26,19 @@ class App extends React.Component {
         const { ratings, reviews, comments, seller, } = res;
 
         //only get 4 comments
-        this.setState({ ratings, reviews, comments: comments.slice(0, 4), seller });
+        this.setState({ ratings, reviews, comments: comments.slice(0,4), seller });
       });
   };
 
 
   getAllComments() {
-    fetch('/api/seller/')
+    fetch('/api/seller/5')
       .then(res => res.json())
       .then(res => {
         const { comments } = res;
 
-        //get all the rest of the comments once the more button is clicked`
+
+        //get all the rest of the comments once the more button is clicked
         this.setState({ comments });
       });
 

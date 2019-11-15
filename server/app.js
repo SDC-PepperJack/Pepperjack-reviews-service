@@ -18,7 +18,7 @@ app.get('/api/seller/:sellerID', (req, res) => {
   // let commentsID = req.params.sellerID;
 
   let queryString1 = `SELECT sellerid, seller, reviews, ratings FROM reviews WHERE sellerid = '${sellerID}';`;
-  let queryString2 = `SELECT reviewerName,reviewerAvatar,reviewerComment,reviewerPhotoInComment,reviewerItem,reviewerItemPhoto,rating,reviewerDate FROM comments WHERE commentsid = '${sellerID}';`;
+  let queryString2 = `SELECT commentsid, reviewerName,reviewerAvatar,reviewerComment,reviewerPhotoInComment,reviewerItem,reviewerItemPhoto,rating,reviewerDate FROM comments WHERE commentsid = '${sellerID}';`;
 
   pg.getSellerData(queryString1, (error, results) => {
     if (error) {

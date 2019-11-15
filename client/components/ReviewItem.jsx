@@ -24,7 +24,7 @@ const ReviewItem = (props) => (
               <br />
               <PhotoInComment
                 onClick={() => props.handleModalView(props)}
-                src={props.photoInComment} />
+                src={props.photoInComment + `?t=${Date.now()}`} />
             </ReviewComment>
 
             : <ReviewComment> {props.comment} </ReviewComment>)

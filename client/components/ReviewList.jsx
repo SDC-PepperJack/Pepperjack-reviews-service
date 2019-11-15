@@ -10,7 +10,7 @@ class ReviewList extends React.Component {
     super(props);
     this.state = {
       modalHTML: {
-        photoInComment: 'test',
+        photoInComment: '',
       }
     };
   }
@@ -64,7 +64,7 @@ class ReviewList extends React.Component {
           <ReviewH4 >
             Reviews
             <ReviewH4Span>
-              <StarRatingComponent editing={false} value={this.props.ratings} starCount={Math.floor(Math.random() * 5)} starColor={'black'} emptyStarColor={'#E1E3DF'} />
+              <StarRatingComponent editing={false} value={Math.ceil(Math.random() * 5)} starCount={5} starColor={'black'} emptyStarColor={'#E1E3DF'} />
             </ReviewH4Span>
             ({this.props.reviews})
           </ReviewH4>
@@ -76,18 +76,17 @@ class ReviewList extends React.Component {
             modalHTML={this.state.modalHTML}
           />
 
-
           {this.props.comments.map(ele =>
             <ReviewItem
-              key={ele.id}
-              avatar={ele.reviewerAvatar}
-              comment={ele.reviewerComment}
-              date={ele.reviewerDate}
-              item={ele.reviewerItem}
-              username={ele.reviewerName}
-              itemPhoto={ele.reviewerItemPhoto}
-              photoInComment={ele.reviewerPhotoInComment}
-              rating={ele.rating}
+              key={ele.commentsid}
+              avatar={ele.revieweravatar}
+              comment={ele.reviewercomment}
+              date={ele.reviewerdate}
+              item={ele.revieweritem}
+              username={ele.reviewername}
+              itemPhoto={ele.revieweritemphoto}
+              photoInComment={ele.reviewerphotoincomment + `?t=${Date.now()}`}
+              rating={Math.ceil(Math.random() * 5)}
               handleModalView={this.handleModalView.bind(this)}
             />
           )}
