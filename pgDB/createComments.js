@@ -23,9 +23,9 @@ let writeProducts = function(writer, encoding, callback) {
         let reviewerName = faker.name.firstName();
         let reviewerAvatar = faker.image.avatar();
         let reviewerComment = faker.lorem.sentence();
-        let reviewerPhotoInComment = faker.image.imageUrl();
+        let reviewerPhotoInComment = "https://loremflickr.com/300/300";
         let reviewerItem = faker.commerce.productName();
-        let reviewerItemPhoto = faker.image.image();
+        let reviewerItemPhoto = "https://loremflickr.com/600/600";
         let rating = faker.random.number();
         let reviewerDate = faker.date.recent();
 
