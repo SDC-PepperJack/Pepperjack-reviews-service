@@ -18,7 +18,7 @@ let writeProducts = function(writer, encoding, callback) {
       let j = 0;
       i -= 1;
       id += 1
-        while (j < 10) {
+        while (j < 25) {
         let commentsid = id;
         let reviewerName = faker.name.firstName();
         let reviewerAvatar = faker.image.avatar();

@@ -13,7 +13,7 @@ let writeProducts = function(writer, encoding, callback) {
 
   // Seeding instructions
   console.log('Seeding initiated at ', Date());
-  let i = 10000000;
+  let i = 400000;
   let id = 0;
   let write = () => {
     let ok = true;
