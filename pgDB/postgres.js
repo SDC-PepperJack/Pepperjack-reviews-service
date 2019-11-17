@@ -5,10 +5,10 @@ var copyFrom = require('pg-copy-streams').from;
 
 
 const client = new Pool({
-  user: 'jonathanyang',
-  host: 'localhost',
+  user: 'postgres',
+  host: '127.0.0.1',
   database: 'reviews_services',
-  password: '',
+  password: 'Password123!',
 });
 
 client.connect()

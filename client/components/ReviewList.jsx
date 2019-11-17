@@ -81,7 +81,7 @@ class ReviewList extends React.Component {
               key={ele.commentsid}
               avatar={ele.revieweravatar}
               comment={ele.reviewercomment}
-              date={ele.reviewerdate}
+              date={ele.reviewerdate.toString().substring(0,15)}
               item={ele.revieweritem}
               username={ele.reviewername}
               itemPhoto={ele.revieweritemphoto}
